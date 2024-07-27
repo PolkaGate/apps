@@ -414,6 +414,7 @@
        1	Jun Zhang                     	Update translation.json (#4508)
        1	Just van Stam                 	Add Polimec Network  (#10137)
        1	Kai                           	Fix broken contract deployment function (#1643)
+       1	Kami                          	Create CNAME
        1	kamrangul2404                 	Add krest parachain (kusama)  (#9079)
        1	Kanishka Rajput               	Update polkassembly.ts networks (#10740)
        1	Ken Truong                    	Add Continuum Metaverse.Network to Polkadot Relay (#10321)
