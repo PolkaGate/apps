@@ -9,6 +9,20 @@
 3- copy     packages/apps/build into ./docs 
 push
 
+add google tag:
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1N3FZCQQJM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1N3FZCQQJM');
+</script>
+
+
+in apps/public/index imediate after head tag
 
 ====================== to publish apps config=======
 
