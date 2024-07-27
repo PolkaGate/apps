@@ -15,7 +15,7 @@ import type { AddressFlags, AddressProxy, QrState } from './types.js';
 
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
-import { web3FromSource } from '@polkadot/extension-dapp';
+import { web3FromSource } from '@polkagate/extension-dapp';
 import { Button, ErrorBoundary, Modal, Output, styled, Toggle } from '@polkadot/react-components';
 import { useApi, useLedger, useQueue, useToggle } from '@polkadot/react-hooks';
 import { keyring } from '@polkadot/ui-keyring';

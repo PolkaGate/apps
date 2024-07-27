@@ -8,7 +8,7 @@ import type { AuthIpfsEndpoint, DirFile, FileInfo, SaveFile, UploadRes } from '.
 import axios from 'axios';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
-import { web3FromSource } from '@polkadot/extension-dapp';
+import { web3FromSource } from '@polkagate/extension-dapp';
 import { Available, Button, Dropdown, InputAddress, Label, MarkError, Modal, Password, styled } from '@polkadot/react-components';
 import { keyring } from '@polkadot/ui-keyring';
 import { isFunction, nextTick, stringToHex, stringToU8a, u8aToHex } from '@polkadot/util';
