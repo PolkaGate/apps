@@ -2,7 +2,7 @@
 
 1- adjust @polkagate/extension-dapp version in packages/react-api/package.json
 
-// to build the app, in the packages/apps/build
+// to build the app run
 2- yarn build:www 
 
 // DO NOT FORGET TO COPY "CNAME"
