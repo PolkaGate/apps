@@ -1,5 +1,265 @@
 # CHANGELOG
 
+## 0.149.1 Feb 7, 2025
+
+Contributed:
+
+- Add Helixstreet Endpoints ([#11237](https://github.com/polkadot-js/apps/pull/11237)) (Thanks to https://github.com/helixstreet)
+- Update moonbeam-types-bundle to latest ([#11240](https://github.com/polkadot-js/apps/pull/11240)) (Thanks to https://github.com/timbrinded)
+- Update new paraId ([#11245](https://github.com/polkadot-js/apps/pull/11245)) (Thanks to https://github.com/ganesh1997oli)
+- Add IBP endpoint to Mythos ([#11249](https://github.com/polkadot-js/apps/pull/11249)) (Thanks to https://github.com/miloskriz)
+- Restore `wss://kreivo.io` provider to the list of providers ([#11250](https://github.com/polkadot-js/apps/pull/11250)) (Thanks to https://github.com/pandres95)
+- Add Permanence DAO Europe public RPC endpoints for Polkadot and Westend Asset Hub ([#11252](https://github.com/polkadot-js/apps/pull/11252)) (Thanks to https://github.com/kukabi)
+- WeTEE added to Paseo ([#11254](https://github.com/polkadot-js/apps/pull/11254)) (Thanks to https://github.com/BurnWW)
+- Update xode paraid in Paseo ([#11264](https://github.com/polkadot-js/apps/pull/11264)) (Thanks to https://github.com/Mrigesh901)
+- Add blockops assethub rpc endpoint ([#11266](https://github.com/polkadot-js/apps/pull/11266)) (Thanks to https://github.com/haroldsphinx)
+- Deleted OnFinality 2 endpoints ([#11270](https://github.com/polkadot-js/apps/pull/11270)) (Thanks to https://github.com/FiveKG)
+- [KILT] Design change and node operator rename ([#11271](https://github.com/polkadot-js/apps/pull/11271)) (Thanks to https://github.com/rflechtner)
+- Add LH ws to bittensor ([#11273](https://github.com/polkadot-js/apps/pull/11273)) (Thanks to https://github.com/camfairchild)
+
+
+Changes: 
+
+- Disable unreachable endpoints ([#11236](https://github.com/polkadot-js/apps/pull/11236) [#11258](https://github.com/polkadot-js/apps/pull/11258) [#11268](https://github.com/polkadot-js/apps/pull/11268))
+- Make use of `spendLocal` in treasury ([#11243](https://github.com/polkadot-js/apps/pull/11243))
+- Remove Experimental from Coretime ([#11246](https://github.com/polkadot-js/apps/pull/11246))
+- Ensure safeguard against treasury spendLocal functions ([#11247](https://github.com/polkadot-js/apps/pull/11247))
+- Showing what core the chain is renewed on ([#11256](https://github.com/polkadot-js/apps/pull/11256))
+- Treasury Spend Params Issue ([#11265](https://github.com/polkadot-js/apps/pull/11265))
+- Update @polkadot/types dep ([#11272](https://github.com/polkadot-js/apps/pull/11272))
+- Upgraded polkadot-js deps ([#11277](https://github.com/polkadot-js/apps/pull/11277))
+- Fee payment with any sufficient asset ([#11229](https://github.com/polkadot-js/apps/pull/11229))
+- 0.148.1 ([#11231](https://github.com/polkadot-js/apps/pull/11231))
+
+## 0.148.1 Jan 23, 2025
+
+Contributed:
+
+- Remove Dwellir Tinkernet endpoint ([#11196](https://github.com/polkadot-js/apps/pull/11196)) (Thanks to https://github.com/jonathanudd)
+- Update Joystream staking inflation parameters ([#11206](https://github.com/polkadot-js/apps/pull/11206)) (Thanks to https://github.com/DzhideX)
+- Add torus network chain ([#11175](https://github.com/polkadot-js/apps/pull/11175)) (Thanks to https://github.com/EdSDR)
+- Change Aventus public rpc endpoints ([#11220](https://github.com/polkadot-js/apps/pull/11220)) (Thanks to https://github.com/vukomir)
+- Update allfeat testnet ([#11214](https://github.com/polkadot-js/apps/pull/11214)) (Thanks to https://github.com/SailorSnoW)
+- 
+
+
+Changes:
+
+- Fix broken balances page ([#11230](https://github.com/polkadot-js/apps/pull/11230))
+- Fixed broken Block Details for blocks/chains with V1 Weight ([#11225](https://github.com/polkadot-js/apps/pull/11225))
+- Fix get next asset Id ([#11213](https://github.com/polkadot-js/apps/pull/11213))
+- Restore submit proposal button for `proposeSend` ([#11218](https://github.com/polkadot-js/apps/pull/11218))
+- Fix default asset selection ([#11222](https://github.com/polkadot-js/apps/pull/11222))
+- Add more sale details to coretime plus region info ([#11188](https://github.com/polkadot-js/apps/pull/11188))
+- Fix transactionPaymentApi issue ([#11208](https://github.com/polkadot-js/apps/pull/11208))
+- Fix card title and related translations ([#11205](https://github.com/polkadot-js/apps/pull/11205))
+- Fix BountyType with new PalletBountiesBounty ([#11204](https://github.com/polkadot-js/apps/pull/11204))
+- Added missing types description to docs ([#11197](https://github.com/polkadot-js/apps/pull/11197))
+- Disable unreachable endpoints ([#11201](https://github.com/polkadot-js/apps/pull/11201)) ([#11216](https://github.com/polkadot-js/apps/pull/11216))
+- Bump dev to 0.83.2 ([#11210](https://github.com/polkadot-js/apps/pull/11210))
+
+
+## 0.147.1 Jan 9, 2025
+
+Contributed:
+
+- Allow identity on Shibuya ([#11081](https://github.com/polkadot-js/apps/pull/11081)) (Thanks to https://github.com/Dinonard)
+- Re-adding Radiumblock as Khala endpoint provider ([#11102](https://github.com/polkadot-js/apps/pull/11102)) (Thanks to https://github.com/radiumb)
+- Re-adding Radiumblock as Bridgehub Kusama and Polkadot Assethub endpoint provider ([#11104](https://github.com/polkadot-js/apps/pull/11104)) (Thanks to https://github.com/radiumb)
+- Update testingRelayWestend.ts ([#11105](https://github.com/polkadot-js/apps/pull/11105)) (Thanks to https://github.com/radiumb)
+- Enable Zondax paseo rpc node ([#11110](https://github.com/polkadot-js/apps/pull/11110)) (Thanks to https://github.com/emmanuelm41)
+- Fix Files(IPFS) module status link and download link ([#10181](https://github.com/polkadot-js/apps/pull/10181)) (Thanks to https://github.com/XueMoMo)
+- Re-adding Radiumblock as Shiden and Bifrost Polkadot endpoint ([#11112](https://github.com/polkadot-js/apps/pull/11112)) (Thanks to https://github.com/radiumb)
+- Updated to load balanced RPC bajun ([#11114](https://github.com/polkadot-js/apps/pull/11114)) (Thanks to https://github.com/darkfriend77)
+- Fix explorer links for Hydration ([#11120](https://github.com/polkadot-js/apps/pull/11120)) (Thanks to https://github.com/jak-pan)
+- Add IBP2 endpoint for invarch & acala ([#11119](https://github.com/polkadot-js/apps/pull/11119)) (Thanks to https://github.com/senseless)
+- Additional IBP endpoints for miscallaneous maintenance ([#11127](https://github.com/polkadot-js/apps/pull/11127)) (Thanks to https://github.com/miloskriz)
+- Update edgeware nodes ([#11134](https://github.com/polkadot-js/apps/pull/11134)) (Thanks to https://github.com/JelliedOwl)
+- Add Jamton ([#11123](https://github.com/polkadot-js/apps/pull/11123)) (Thanks to https://github.com/alexxxkny)
+- Add Autonomys Taurus EVM testnet endpoints ([#11135](https://github.com/polkadot-js/apps/pull/11135)) (Thanks to https://github.com/jfrank-summit)
+- Update statescan/subsquare external links ([#11143](https://github.com/polkadot-js/apps/pull/11143)) (Thanks to https://github.com/wliyongfeng)
+- Updated Dwellir endpoints for Moonriver, Moonbeam, Basilisk and Hydration ([#11149](https://github.com/polkadot-js/apps/pull/11149)) (Thanks to https://github.com/Maharacha)
+- Add NeuroWeb Testnet endpoint for Paseo ([#11151](https://github.com/polkadot-js/apps/pull/11151)) (Thanks to https://github.com/NZT48)
+- Fix links to edgescan.ink for Edgeware ([#11154](https://github.com/polkadot-js/apps/pull/11154)) (Thanks to https://github.com/JelliedOwl)
+- Add Helikon public RPC endpoint for Mythos ([#11141](https://github.com/polkadot-js/apps/pull/11141)) (Thanks to https://github.com/kukabi)
+- Set Kusama People as identity provider for Kreivo ([#10609](https://github.com/polkadot-js/apps/pull/10609)) (Thanks to https://github.com/pandres95)
+- Deleted the OnFinality Bajun endpoints ([](https://github.com/polkadot-js/apps/pull/11183)) (Thanks to https://github.com/FiveKG)
+- Add Analog mainnet ([#11179](https://github.com/polkadot-js/apps/pull/11179)) (Thanks to https://github.com/FlorianFranzen)
+- Add westend penpal to the list of networks ([#11171](https://github.com/polkadot-js/apps/pull/11171)) (Thanks to https://github.com/franciscoaguirre)
+- Updated the Onfinality Nodle endpoints ([#11189](https://github.com/polkadot-js/apps/pull/11189)) (Thanks to https://github.com/FiveKG)
+
+
+Changes:
+
+- Relay Chain Coretime Sales UI ([#11091](https://github.com/polkadot-js/apps/pull/11091))
+- Allow for parachains with `isPeopleForIdentity` to access identity from the people chain ([#11160](https://github.com/polkadot-js/apps/pull/11160))
+- Upgrade chopsticks to 1.0.1 ([#11163](https://github.com/polkadot-js/apps/pull/11163))
+- Upgrade polkadot-js deps ([#11191](https://github.com/polkadot-js/apps/pull/11191))
+    - @polkadot/api -> 15.2.1
+    - @polkadot/common -> 13.3.1
+    - @polkadot/ui -> 3.12.1
+    - @polkadot/tools -> 0.62.1
+    - @polkadot/extension -> 0.58.1
+    - @polkadot/phishing -> 0.25.1
+- Disable Unreachable Endpoints ([#11099](https://github.com/polkadot-js/apps/pull/11099)) ([#11161](https://github.com/polkadot-js/apps/pull/11161)) ([#11187](https://github.com/polkadot-js/apps/pull/11187))
+- Update Headers to 2025 ([#11172](https://github.com/polkadot-js/apps/pull/11172))
+- Update Scripts to correctly write headers ([#11176](https://github.com/polkadot-js/apps/pull/11176))
+- Fix test that writes to typesbundle ([#11180](https://github.com/polkadot-js/apps/pull/11180))
+- Bump yarn to 4.6.0 ([#11193](https://github.com/polkadot-js/apps/pull/11193))
+
+
+
+## 0.146.1 Nov 12, 2024
+
+Contributed:
+
+- Add Subquery rpc (Thanks to https://github.com/fewensa)
+- Re-enable Hydration Paseo rpc (Thanks to https://github.com/jak-pan)
+- Remove `needsAccounts` from fellowship and ambassador routing (Thanks to https://github.com/wirednkod)
+- Fix Api check foor treasury page (Thanks to https://github.com/sesh92)
+- Re-add IDN node provider (Thanks to https://github.com/juangirini)
+- Add watr to paseo (Thanks to https://github.com/Mrigesh901)
+- Add xode to paseo (Thanks to https://github.com/Mrigesh901)
+- Add Autonomys mainnet and Taurus testnet endpoints (Thanks to https://github.com/jfrank-summit)
+
+Changes:
+
+- Export all from Paseo Apps-config
+- Disable unreachable endpoints
+- Add Relay Chain Coretime Overview Tab
+- Fix treasury page, and disable propose button
+- Bump dev to 0.82.1 w/ typescript w/ tslib
+- Fix showing waiting, active, and inactive nomination on the accounts page
+- Fix staking payouts
+- Update polkadot-js deps
+    - @polkadot/api -> 14.3.1
+    - @polkadot/common -> 13.2.3
+    - @polkadot/phishing -> 0.24.3
+    - @polkadot/wasm-crypto -> 7.4.1
+    - @polkadot/tools -> 0.60.3
+    - @polkadot/extension -> 0.56.2
+    - @polkadot/ui -> 3.11.3
+- Remove macos from electron CI build
+
+
+## 0.145.1 Oct 15, 2024
+
+Contributed:
+
+- Bump KILT dep (Thanks to https://github.com/ntn-x2)
+- Remove rococoAmplitude and add paseoAmplitude (Thanks to https://github.com/gianfra-t)
+- Renamed riot to matrix while displaying identity  (Thanks to https://github.com/niklabh)
+- Update translation: Bahasa Indonesia (Thanks to https://github.com/xryoshi)
+- Change robonomics parachains colors (Thanks to https://github.com/PavelSheremetev)
+- Add the official RPC for parallel network (Thanks to https://github.com/dio-will)
+- Update Zero Canary Endpoints for productionRelayKusama.ts (Thanks to https://github.com/2075)
+- RadiumBlock would like to bring up our Moonbase endpoints in Curie. Our high performance, highly distributed Endpoint Delivery Network. (Thanks to https://github.com/radiumb)
+- Update subsquare supported chains (Thanks to https://github.com/wliyongfeng)
+- Add RegionX Paseo (Thanks to https://github.com/Szegoo)
+- Deleted OnFinality 3 endpoints (Thanks to https://github.com/FiveKG)
+
+Changes:
+- Reflecting changes to Identity pallet  
+- Patch for crashing explorer
+- H160 address parsing issues on Address book and AccountName component
+- Naming issue for Paseo People chain
+- Remove Rococo relay and parachains
+- Add bittensor types to types bundle
+- Update polkadot-js deps
+- Disable unreachable endpoints
+
+## 0.144.1 Sep 24, 2024
+
+Contributed:
+
+- Change Creditcoin Mainnet Name Ahead of New Mainnet Release (Thanks to https://github.com/BradleyOlson64)
+- Add polkadot coretime chain (Thanks to https://github.com/BulatSaif)
+- Refresh POP network colour and logo (Thanks to https://github.com/evilrobot-01)
+- Restore working SubQuery endpoint (Thanks to https://github.com/jamesbayly)
+- Update Kilt chain type definitions to V1 (Thanks to https://github.com/rflechtner)
+- Add new Creditcoin Mainnet (Thanks to https://github.com/BradleyOlson64)
+- Rename CreditCoin Classic  to CC enterprise (Thanks to https://github.com/beqaabu)
+- Change DAO IPCI endpoint (Thanks to https://github.com/dergudzon)
+- Add Argon Protocol testnet (Thanks to https://github.com/blakebyrnes)
+- Onfinality remove Kilt (Thanks to https://github.com/CrazySurfBoy)
+- Add Proof size summary (Thanks to https://github.com/Moliholy)
+- People for identity in paseo system chains (Thanks to https://github.com/al3mart)
+- Add Energy Web X (PEX) parachain on Paseo Relaychain (Thanks to https://github.com/royki)
+- Add Dwellir Laso endoint (Thanks to https://github.com/gflow33)
+- Add Xcavate to paseo (Thanks to https://github.com/ganesh1997oli)
+- Hydration Rebrand (Thanks to https://github.com/jak-pan)
+- Add paseo Coretime RPC (Thanks to https://github.com/al3mart)
+- Move Zeitgeist Batter station to Paseo (Thanks to https://github.com/maltekliemann)
+- Update endpoints for SORA testnet (Thanks to https://github.com/stefashkaa)
+- Re-enable OnFinality for 2091 (Thanks to https://github.com/wilwade)
+- Update XCAV logo (Thanks to https://github.com/ganesh1997oli)
+- Removal of RadiumBlock as Watr Endpoint Provider (Thanks to https://github.com/radiumb)
+- Add ideal Network testnet to Paseo (Thanks to https://github.com/juangirini)
+- Add Myriad Social testnet to Paseo (Thanks to https://github.com/agustinustheo)
+- Enable robonomics endpoint (Thanks to https://github.com/PavelSheremetev)
+- Migrate IBP2 endpoints from path to subdomains (Thanks to https://github.com/senseless)
+
+Changes:
+
+- Set current account nonce to be independent from user input
+- Fix identity for live networks
+- Allow reserved in voting balance
+- Disable unreachable endpoints
+- Add People logo to westend
+- Bump yarn to 4.4.1
+- Coretime Chain - Add Overview UI Tab
+- Fix Format Balance issue
+- Fix error in Coretime on polkadot due to no data
+- Update Broker pallet calls to be generalized, and add esimated bulk price value
+- Fix Updated parsing for brokerConfig and brokerSalesInfo
+- Upgrade polkadot-js deps
+
+
+## 0.143.2 Aug 21, 2024
+
+Changes:
+
+- Upgrade polkadot-js/api to 12.4.2
+    - Fixes a bug where transferable would not populate for kusama
+
+
+## 0.143.1 Aug 20, 2024
+
+Contributed:
+
+- Adding RadiumBlock as Polkadot People Endpoint provider (Thanks to https://github.com/radiumb)
+- Added Robonomics Network Polkadot parachain endpoint (Thanks to https://github.com/PavelSheremetev)
+- Update productionRelayPolkadot.ts to add LuckyFriday Polkadot People RPC Provider (Thanks to https://github.com/Rbdude25)
+- substitute LAOS Omega with LAOS Sigma (Thanks to https://github.com/asiniscalchi)
+- Update productionRelayPolkadot.ts fixed url of LuckyFriday Polkadot People (Thanks to https://github.com/Rbdude25)
+- Add new IBP endpoint (Thanks to https://github.com/tugytur)
+- Add RadiumBlock Bifrost wss endpoint (Thanks to https://github.com/radiumb)
+- Change the rendering of chains' Sovereign Accounts (Thanks to https://github.com/rzadp)
+- added Aventus to paseo frontend (Thanks to https://github.com/ivan-cholakov)
+- Add new RPC to Paseo AssetHub (Thanks to https://github.com/al3mart)
+- Added OnFinality CommuneAI endpoint (Thanks to https://github.com/mikespook)
+- enable blockops endpoint (Thanks to https://github.com/haroldsphinx)
+- Adds new Hyperbridge logo (Thanks to https://github.com/olahfemi)
+- Enable paseo endpoint (Thanks to https://github.com/haroldsphinx)
+- fix local fork cannot recover from failure (Thanks to https://github.com/qiweiii)
+- Update peerplays types bundle (Thanks to https://github.com/vampik33)
+- Feature - introduce ambassador Base (Members and Referenda) (Thanks to https://github.com/wirednkod)
+
+Changes:
+
+- Adjust warning message for staking pools
+- Add support for Migration Ledger App
+- feat: enable uploading rawMetadata to the extension
+- Disable unreachable endpoints
+- Update Polkadot-js deps
+- Ensure useRawMetadata checks for metadata call
+- Bump yarn to 4.4.0
+- Enable "Chain Specific App" for Ledger
+- Add people polkadot logo
+- Fix Preimage failure of Null amount for Tangle
+- Fix transferable balance
+
+
 ## 0.142.1 July 18, 2024
 
 Contributed:

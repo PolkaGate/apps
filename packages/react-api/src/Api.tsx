@@ -1,4 +1,4 @@
-// Copyright 2017-2024 @polkadot/react-api authors & contributors
+// Copyright 2017-2025 @polkadot/react-api authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import type { Blockchain } from '@acala-network/chopsticks-core';
@@ -18,7 +18,7 @@ import { deriveMapCache, setDeriveCache } from '@polkadot/api-derive/util';
 import { ethereumChains, typesBundle } from '@polkadot/apps-config';
 import { web3Accounts, web3Enable } from '@polkagate/extension-dapp';
 import { TokenUnit } from '@polkadot/react-components/InputConsts/units';
-import { useApiUrl, useEndpoint, usePeopleEndpoint, useQueue } from '@polkadot/react-hooks';
+import { useApiUrl, useCoretimeEndpoint, useEndpoint, usePeopleEndpoint, useQueue } from '@polkadot/react-hooks';
 import { ApiCtx } from '@polkadot/react-hooks/ctx/Api';
 import { ApiSigner } from '@polkadot/react-signer/signers';
 import { keyring } from '@polkadot/ui-keyring';
@@ -232,14 +232,15 @@ async function createApi (apiUrl: string, signer: ApiSigner, isLocalFork: boolea
   const types = getDevTypes();
   const isLight = apiUrl.startsWith('light://');
   let provider;
-  let chopsticksFork: Blockchain | null = null;
 
-  try {
-    if (isLight) {
-      provider = await getLightProvider(apiUrl.replace('light://', ''));
-    } else if (isLocalFork) {
-      provider = await ChopsticksProvider.fromEndpoint(apiUrl);
-      chopsticksFork = provider.chain;
+  let chopsticksFork: Blockchain | null = null;
+  let chopsticksProvider;
+  let setupChopsticksSuccess = false;
+
+  if (isLocalFork) {
+    try {
+      chopsticksProvider = await ChopsticksProvider.fromEndpoint(apiUrl);
+      chopsticksFork = chopsticksProvider.chain;
       await setStorage(chopsticksFork, {
         System: {
           Account: [
@@ -247,6 +248,22 @@ async function createApi (apiUrl: string, signer: ApiSigner, isLocalFork: boolea
           ]
         }
       });
+      setupChopsticksSuccess = true;
+    } catch (error) {
+      store.set('localFork', '');
+      const msg = `Local fork failed, please refresh to switch back to default API provider. This is likely due to chain not supported by chopsticks.
+      Please consider to send an issue to https://github.com/AcalaNetwork/chopsticks.`;
+
+      onError(new Error(msg));
+      throw error;
+    }
+  }
+
+  try {
+    if (isLight) {
+      provider = await getLightProvider(apiUrl.replace('light://', ''));
+    } else if (isLocalFork && setupChopsticksSuccess) {
+      provider = chopsticksProvider;
     } else {
       provider = new WsProvider(apiUrl);
     }
@@ -261,7 +278,7 @@ async function createApi (apiUrl: string, signer: ApiSigner, isLocalFork: boolea
 
     // See https://github.com/polkadot-js/api/pull/4672#issuecomment-1078843960
     if (isLight) {
-      await provider.connect();
+      await provider?.connect();
     }
   } catch (error) {
     onError(error);
@@ -280,6 +297,7 @@ export function ApiCtxRoot ({ apiUrl, children, isElectron, store: keyringStore 
   const [isLocalFork] = useState(store.get('localFork') === apiUrl);
   const apiEndpoint = useEndpoint(apiUrl);
   const peopleEndpoint = usePeopleEndpoint(apiEndpoint?.relayName || apiEndpoint?.info);
+  const coreTimeEndpoint = useCoretimeEndpoint(apiEndpoint?.relayName || apiEndpoint?.info);
   const relayUrls = useMemo(
     () => (apiEndpoint?.valueRelay && isNumber(apiEndpoint.paraId) && (apiEndpoint.paraId < 2000))
       ? apiEndpoint.valueRelay
@@ -292,16 +310,27 @@ export function ApiCtxRoot ({ apiUrl, children, isElectron, store: keyringStore 
       : null,
     [apiEndpoint, peopleEndpoint]
   );
+  const coretimeUrls = useMemo(
+    () => (coreTimeEndpoint?.providers)
+      ? coreTimeEndpoint.providers
+      : null,
+    [coreTimeEndpoint]
+  );
   const apiRelay = useApiUrl(relayUrls);
+  const apiCoretime = useApiUrl(coretimeUrls);
   const apiSystemPeople = useApiUrl(peopleUrls);
   const createLink = useMemo(
     () => makeCreateLink(apiUrl, isElectron),
     [apiUrl, isElectron]
   );
-  const enableIdentity = apiEndpoint?.isPeople || (isNumber(apiEndpoint?.paraId) && (apiEndpoint?.paraId >= 2000)) || apiEndpoint?.info?.toLowerCase() === 'paseo';
+  const enableIdentity = apiEndpoint?.isPeople ||
+    // Ensure that parachains that don't have isPeopleForIdentity set, can access there own identity pallet.
+    (isNumber(apiEndpoint?.paraId) && (apiEndpoint?.paraId >= 2000) && !apiEndpoint?.isPeopleForIdentity) ||
+    // Ensure that when isPeopleForIdentity is set to false that it enables the identity pallet access.
+    (typeof apiEndpoint?.isPeopleForIdentity === 'boolean' && !apiEndpoint?.isPeopleForIdentity);
   const value = useMemo<ApiProps>(
-    () => objectSpread({}, state, { api: statics.api, apiEndpoint, apiError, apiIdentity: ((apiEndpoint?.isPeopleForIdentity && apiSystemPeople) || statics.api), apiRelay, apiSystemPeople, apiUrl, createLink, enableIdentity, extensions, isApiConnected, isApiInitialized, isElectron, isLocalFork, isWaitingInjected: !extensions }),
-    [apiError, createLink, extensions, isApiConnected, isApiInitialized, isElectron, isLocalFork, state, apiEndpoint, apiRelay, apiUrl, apiSystemPeople, enableIdentity]
+    () => objectSpread({}, state, { api: statics.api, apiCoretime, apiEndpoint, apiError, apiIdentity: ((apiEndpoint?.isPeopleForIdentity && apiSystemPeople) || statics.api), apiRelay, apiSystemPeople, apiUrl, createLink, enableIdentity, extensions, isApiConnected, isApiInitialized, isElectron, isLocalFork, isWaitingInjected: !extensions }),
+    [apiError, createLink, extensions, isApiConnected, isApiInitialized, isElectron, isLocalFork, state, apiEndpoint, apiCoretime, apiRelay, apiUrl, apiSystemPeople, enableIdentity]
   );
 
   // initial initialization

@@ -1,4 +1,4 @@
-// Copyright 2017-2024 @polkadot/react-components authors & contributors
+// Copyright 2017-2025 @polkadot/react-components authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import type { DeriveBalancesAll } from '@polkadot/api-derive/types';
@@ -19,6 +19,7 @@ import InputBalance from '../InputBalance.js';
 import MarkError from '../MarkError.js';
 import MarkWarning from '../MarkWarning.js';
 import Modal from '../Modal/index.js';
+import PayWithAsset from '../PayWithAsset.js';
 import { styled } from '../styled.js';
 import Toggle from '../Toggle.js';
 import { useTranslation } from '../translate.js';
@@ -73,10 +74,10 @@ function Transfer ({ className = '', onClose, recipientId: propRecipientId, send
     if (balances && balances.accountId?.eq(fromId) && fromId && toId && api.call.transactionPaymentApi && api.tx.balances) {
       nextTick(async (): Promise<void> => {
         try {
-          const extrinsic = (api.tx.balances.transferAllowDeath || api.tx.balances.transfer)(toId, balances.availableBalance);
+          const extrinsic = (api.tx.balances.transferAllowDeath || api.tx.balances.transfer)(toId, (balances.transferable || balances.availableBalance));
           const { partialFee } = await extrinsic.paymentInfo(fromId);
           const adjFee = partialFee.muln(110).div(BN_HUNDRED);
-          const maxTransfer = balances.availableBalance.sub(adjFee);
+          const maxTransfer = (balances.transferable || balances.availableBalance).sub(adjFee);
 
           setMaxTransfer(
             api.consts.balances && maxTransfer.gt(api.consts.balances.existentialDeposit)
@@ -121,7 +122,7 @@ function Transfer ({ className = '', onClose, recipientId: propRecipientId, send
               label={t('send from account')}
               labelExtra={
                 <Available
-                  label={t('transferrable')}
+                  label={t('transferable')}
                   params={propSenderId || senderId}
                 />
               }
@@ -136,7 +137,7 @@ function Transfer ({ className = '', onClose, recipientId: propRecipientId, send
               label={t('send to address')}
               labelExtra={
                 <Available
-                  label={t('transferrable')}
+                  label={t('transferable')}
                   params={propRecipientId || recipientId}
                 />
               }
@@ -147,6 +148,9 @@ function Transfer ({ className = '', onClose, recipientId: propRecipientId, send
               <MarkError content={t('The recipient is associated with a known phishing site on {{url}}', { replace: { url: recipientPhish } })} />
             )}
           </Modal.Columns>
+          <Modal.Columns hint={t('By selecting this option, the transaction fee will be automatically deducted from the specified asset, ensuring a seamless and efficient payment process.')}>
+            <PayWithAsset />
+          </Modal.Columns>
           <Modal.Columns hint={t('If the recipient account is new, the balance needs to be more than the existential deposit. Likewise if the sending account balance drops below the same value, the account will be removed from the state.')}>
             {canToggleAll && isAll
               ? (
@@ -155,7 +159,7 @@ function Transfer ({ className = '', onClose, recipientId: propRecipientId, send
                   defaultValue={maxTransfer}
                   isDisabled
                   key={maxTransfer?.toString()}
-                  label={t('transferrable minus fees')}
+                  label={t('transferable minus fees')}
                 />
               )
               : (

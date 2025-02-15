@@ -1,4 +1,4 @@
-// Copyright 2017-2024 @polkadot/app-accounts authors & contributors
+// Copyright 2017-2025 @polkadot/app-accounts authors & contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import type { ActionStatus } from '@polkadot/react-components/Status/types';
@@ -140,7 +140,7 @@ function Overview ({ className = '', onStatusChange }: Props): React.ReactElemen
             locked: aggregate('locked'),
             redeemable: aggregate('redeemable'),
             total: aggregate('total'),
-            transferrable: aggregate('transferrable'),
+            transferable: aggregate('transferable'),
             unbonding: aggregate('unbonding')
           }
         };
