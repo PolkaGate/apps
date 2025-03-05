@@ -1,4 +1,4 @@
-====================== to publish apps,polkagate.xyz =======
+A: ====================== to publish apps,polkagate.xyz =======
 
 1- adjust @polkagate/extension-dapp version in packages/react-api/package.json
 
@@ -9,7 +9,8 @@
 3- copy     packages/apps/build into ./docs 
 push
 
-add google tag:
+------------
+! if wanna add google tag:
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1N3FZCQQJM"></script>
@@ -22,9 +23,12 @@ add google tag:
 </script>
 
 
-in apps/public/index imediate after head tag
+in apps/public/index immediate after head tag
 
-====================== to publish apps config=======
+
+
+
+B: ====================== to publish apps config=======
 
 cd packages/apps-config/build
 
