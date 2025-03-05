@@ -352,7 +352,7 @@ export const prodParasKusama: Omit<EndpointOption, 'teleport'>[] = [
     paraId: 2004,
     providers: {
       // Dwellir: 'wss://khala-rpc.dwellir.com', // https://github.com/polkadot-js/apps/issues/11274
-      Helikon: 'wss://rpc.helikon.io/khala'
+      // Helikon: 'wss://rpc.helikon.io/khala'
       // OnFinality: 'wss://khala.api.onfinality.io/public-ws',
       // Phala: 'wss://khala-api.phala.network/ws', // https://github.com/polkadot-js/apps/issues/11178
       // RadiumBlock: 'wss://khala.public.curie.radiumblock.co/ws'// https://github.com/polkadot-js/apps/issues/11274
@@ -531,7 +531,7 @@ export const prodParasKusama: Omit<EndpointOption, 'teleport'>[] = [
     paraId: 2085,
     providers: {
       // OnFinality: 'wss://parallel-heiko.api.onfinality.io/public-ws', // https://github.com/polkadot-js/apps/issues/9964
-      Parallel: 'wss://heiko-rpc.parallel.fi'
+      // Parallel: 'wss://heiko-rpc.parallel.fi' // https://github.com/polkadot-js/apps/issues/11337
     },
     text: 'Parallel Heiko',
     ui: {
